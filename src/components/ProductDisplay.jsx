@@ -4,21 +4,20 @@ import { products } from "../utils/products";
 import SingleProduct from "./SingleProduct";
 import Button from "./Button";
 
-const ProductDisplay = ({heading}) => {
+const ProductDisplay = ({ heading, color = "#F7F7F7" }) => {
+  const [category, setCategory] = useState("Chair");
+  const categoryLabel = ["Chair", "Beds", "Sofa", "Lamp"];
+  const [showProducts, setShowProducts] = useState(4);
+  const showMoreProducts = () => {
+    setShowProducts((prev) => prev + 4);
+  };
 
-    const [category, setCategory] = useState("Chair");
-    const categoryLabel = ["Chair", "Beds", "Sofa", "Lamp"];
-    const [showProducts,setShowProducts]=useState(4)
-    const showMoreProducts=()=>{
-        setShowProducts(prev=>prev+4)
-    }
-
-    const displayProducts = products.filter(
-      (product) => product.category == category
-    );
+  const displayProducts = products.filter(
+    (product) => product.category == category
+  );
 
   return (
-    <div className="py-[50px] bg-[#F7F7F7]">
+    <div className="py-[50px]" style={{ backgroundColor: color }}>
       <Container>
         <h2 className="font-['Poppins'] font-bold text-[25px] md:text-[42px] text-center leading-[63px] mb-[21px]">
           {heading}
@@ -27,7 +26,7 @@ const ProductDisplay = ({heading}) => {
         <div className="md:w-[348px] mx-auto rounded-[44px] bg-[#EEEEEE] flex justify-between items-center p-[14px]">
           {categoryLabel.map((item) => (
             <button
-            key={item}
+              key={item}
               onClick={() => setCategory(item)}
               className={`font-['Poppins'] font-semibold text-[18px] cursor-pointer text-[#1E1E1E] ${
                 item == category

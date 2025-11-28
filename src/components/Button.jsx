@@ -4,7 +4,7 @@ import { HiArrowLongRight } from "react-icons/hi2";
 const Button = ({text,size,fn}) => {
   return (
     <div onClick={fn}
-    className="flex items-center cursor-pointer ">
+    className="flex items-center cursor-pointer gap-x-2 ">
       <h6
         className="font-bold font-['Poppins'] text-[#E58411]"
         style={{ fontSize: size }}
