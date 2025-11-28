@@ -9,8 +9,7 @@ const Hero = () => {
       className="bg-cover bg-center h-screen md:h-[120vh] bg-no-repeat w-full relative"
       style={{ backgroundImage: `url(${herobg})` }}
     >
-
-    {/*  content Section */}
+      {/*  content Section */}
       <div className="text-center pt-[180px]">
         <h1 className="font-['Poppins'] font-medium text-[25px] md:text-[50px] lg:text-[64px] leading-[130%] text-white mb-10 md:mb-14">
           Make your interior more <br /> minimalistic & modern
@@ -31,17 +30,28 @@ const Hero = () => {
         </div>
       </div>
 
+      <div className="absolute bottom-0 h-[140px]  left-0 bg-linear-to-t from-white via-transparent to-transparent w-full">
+      </div>
+
       {/*  tooltips section */}
-      <div className={`hidden xl:flex w-[56px] absolute h-[56px] bottom-[345px] left-[400px]  rounded-full justify-center items-center bg-white/20 backdrop-blur-sm cursor-pointer group`} >
+      <div
+        className={`hidden xl:flex w-[56px] absolute h-[56px] bottom-[345px] left-[400px]  rounded-full justify-center items-center bg-white/20 backdrop-blur-sm cursor-pointer group`}
+      >
         <Tooltip size={"18px"} />
       </div>
-      <div className={`hidden xl:flex w-[32px] absolute h-[32px] bottom-[290px] left-[140px]  rounded-full justify-center items-center bg-white/20 backdrop-blur-sm cursor-pointer group`} >
+      <div
+        className={`hidden xl:flex w-[32px] absolute h-[32px] bottom-[290px] left-[140px]  rounded-full justify-center items-center bg-white/20 backdrop-blur-sm cursor-pointer group`}
+      >
         <Tooltip size={"10px"} />
       </div>
-      <div className={`hidden xl:flex w-[37px] absolute h-[37px] bottom-[160px] right-[55px]  rounded-full justify-center items-center bg-white/20 backdrop-blur-sm cursor-pointer group`} >
+      <div
+        className={`hidden xl:flex w-[37px] absolute h-[37px] bottom-[160px] right-[55px]  rounded-full justify-center items-center bg-white/20 backdrop-blur-sm cursor-pointer group`}
+      >
         <Tooltip size={"12px"} />
       </div>
-      <div className={`hidden xl:flex w-[32px] absolute h-[32px] bottom-[225px] right-[43%]  rounded-full justify-center items-center bg-white/20 backdrop-blur-sm cursor-pointer group`} >
+      <div
+        className={`hidden xl:flex w-[32px] absolute h-[32px] bottom-[225px] right-[43%]  rounded-full justify-center items-center bg-white/20 backdrop-blur-sm cursor-pointer group`}
+      >
         <Tooltip size={"10px"} />
       </div>
     </section>

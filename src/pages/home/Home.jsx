@@ -1,11 +1,12 @@
 import React from "react";
 import Hero from "./Hero";
+import Whyus from "./Whyus";
 
 const Home = () => {
   return (
     <>
-      {/* Hero Section */}
         <Hero />
+        <Whyus/>
     </>
   );
 };
