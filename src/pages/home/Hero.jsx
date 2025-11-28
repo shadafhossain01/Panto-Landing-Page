@@ -30,7 +30,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 h-[140px]  left-0 bg-linear-to-t from-white via-transparent to-transparent w-full">
+      <div className="absolute bottom-0 h-[300px]  left-0 bg-linear-to-t from-white via-transparent to-transparent w-full">
       </div>
 
       {/*  tooltips section */}
