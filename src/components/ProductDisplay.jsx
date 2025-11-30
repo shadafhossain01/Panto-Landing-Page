@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Container from "./Container";
 import { products } from "../utils/products";
 import SingleProduct from "./SingleProduct";
 import Button from "./Button";
+import { Theme } from "../context/ThemeContext";
 
 const ProductDisplay = ({ heading, color = "#F7F7F7" }) => {
+  const {theme}=useContext(Theme)
+  const bgColor = theme === "dark" ? "#1E1E1E" : color;
   const [category, setCategory] = useState("Chair");
   const categoryLabel = ["Chair", "Beds", "Sofa", "Lamp"];
   const [showProducts, setShowProducts] = useState(4);
@@ -17,9 +20,9 @@ const ProductDisplay = ({ heading, color = "#F7F7F7" }) => {
   );
 
   return (
-    <div className="py-[50px]" style={{ backgroundColor: color }}>
+    <div className="py-[50px] " style={{ backgroundColor: bgColor }}>
       <Container>
-        <h2 className="font-['Poppins'] font-bold text-[25px] md:text-[42px] text-center leading-[63px] mb-[21px]">
+        <h2 className="font-['Poppins'] font-bold text-[25px] md:text-[42px] text-center leading-[63px] mb-[21px] dark:text-white">
           {heading}
         </h2>
         {/* category Tabs */}
