@@ -82,6 +82,38 @@ export const products = [
     imageUrl: "beds-5.png",
     rating: 5,
   },
+  {
+    id: 70,
+    name: "Queen Size Bed",
+    category: "Beds",
+    price: 249,
+    imageUrl: "beds-2.png",
+    rating: 5,
+  },
+  {
+    id: 80,
+    name: "Modern Bed Frame",
+    category: "Beds",
+    price: 399,
+    imageUrl: "beds-3.png",
+    rating: 3,
+  },
+  {
+    id: 90,
+    name: "Platform Bed",
+    category: "Beds",
+    price: 289,
+    imageUrl: "beds-4.png",
+    rating: 2,
+  },
+  {
+    id: 100,
+    name: "Sleigh Bed",
+    category: "Beds",
+    price: 499,
+    imageUrl: "beds-5.png",
+    rating: 5,
+  },
 
   // Sofas
   {
