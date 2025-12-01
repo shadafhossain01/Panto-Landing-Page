@@ -23,16 +23,15 @@ const Footer = () => {
     ]
 
   return (
-    <div className="bg-[#F7F7F7] pt-[118px] pb-[55px]">
+    <div className="bg-[#F7F7F7] pt-[118px] pb-[55px] dark:bg-[#252525] ">
       <Container>
         <div className="flex  justify-between items-center flex-col text-center md:flex-row md:text-left">
-
-        {/* Footer Logo & Text */}
+          {/* Footer Logo & Text */}
           <div className="mb-[25px] lg:mb-0">
-            <h3 className="font-['Poppins'] text-[28px] font-bold text-[#1E1E1E] mb-[22px]">
+            <h3 className="font-['Poppins'] text-[28px] font-bold text-[#1E1E1E] mb-[22px] dark:text-white">
               Panto
             </h3>
-            <p className="w-[293px] font-['Poppins'] font-medium text-[15px] leading-[160%] text-[#1E1E1E]">
+            <p className="w-[293px] font-['Poppins'] font-medium text-[15px] leading-[160%] text-[#1E1E1E] dark:text-[#ffffffaf]">
               The advantage of hiring a workspace with us is that givees you
               comfortable service and all-around facilities.
             </p>
@@ -47,9 +46,9 @@ const Footer = () => {
                 </h3>
                 <ul>
                   {item.links.map((link) => (
-                    <li className="text-[#1E1E1E] font-['Poppins'] text-[15px] font-medium mb-4 flex gap-x-2 items-center cursor-pointer">
+                    <li className="text-[#1E1E1E] font-['Poppins'] text-[15px] font-medium mb-4 flex gap-x-2 items-center cursor-pointer dark:text-white">
                       <link.icon />
-                      <span className="font-['Poppins'] text-[15px] font-medium text-[#1E1E1E]">
+                      <span className="font-['Poppins'] text-[15px] font-medium text-[#1E1E1E] dark:text-white">
                         {link.text}
                       </span>
                     </li>
@@ -65,7 +64,7 @@ const Footer = () => {
                   {item.links.map((link) => (
                     <li
                       key={link}
-                      className="text-[#1E1E1E] font-['Poppins'] text-[15px] font-medium mb-4 cursor-pointer"
+                      className="text-[#1E1E1E] dark:text-white font-['Poppins'] text-[15px] font-medium mb-4 cursor-pointer"
                     >
                       {link}
                     </li>
@@ -77,15 +76,15 @@ const Footer = () => {
         </div>
 
         {/*  Footer Bottom Text */}
-        <div className="flex justify-between mt-[50px] text-center xl:mt-[118px] flex-col md:flex-row">
-          <h3 className="font-['Poppins'] text-[#1E1E1E] text-[15px] leading-[160%]">
+        <div className="flex justify-between mt-[50px] text-center xl:mt-[90px] flex-col md:flex-row relative before:content-[''] before:absolute md:before:w-full before:h-px before:-top-[15px] dark:before:bg-[#ffffffaf] before:bg-[#1A1A1A] ">
+          <h3 className="font-['Poppins'] dark:text-[#ffffffaf] text-[#1E1E1E] text-[15px] leading-[160%]">
             Copyright © 2026
           </h3>
           <ul className="flex gap-x-[26px]">
-            <li className="font-['Poppins'] text-[#1E1E1E] text-[15px] leading-[160%] cursor-pointer">
+            <li className="font-['Poppins'] dark:text-[#ffffffaf] text-[#1E1E1E] text-[15px] leading-[160%] cursor-pointer">
               Terms & Conditions
             </li>
-            <li className="font-['Poppins'] text-[#1E1E1E] text-[15px] leading-[160%] cursor-pointer">
+            <li className="font-['Poppins'] dark:text-[#ffffffaf] text-[#1E1E1E] text-[15px] leading-[160%] cursor-pointer">
               Privacy Policy
             </li>
           </ul>
