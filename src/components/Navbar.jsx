@@ -92,7 +92,7 @@ const Navbar = () => {
             ) : (
               <FaBars
                 className={` text-2xl cursor-pointer ${
-                  isScroll & theme=="light" ? "text-black" : "text-white "
+                  isScroll & (theme == "light") ? "text-black" : "text-white "
                 }`}
                 onClick={() => setMenuOpen((prev) => !prev)}
               />
@@ -102,9 +102,11 @@ const Navbar = () => {
           {/*  Cart Icon */}
           <div className="cursor-pointer relative hidden lg:flex gap-7 items-center">
             <Cart color={isScroll && theme == "light" ? "black" : "white "} />
-            <div className="w-[25px] h-[25px] bg-[#E58411] text-center rounded-full text-white absolute right-[31px] top-px">
-              {cartItem.length}
-            </div>
+            {cartItem.length > 0 && (
+              <div className="w-[25px] h-[25px] bg-[#E58411] text-center rounded-full text-white absolute right-[31px] top-px">
+                {cartItem.length}
+              </div>
+            )}
             <div onClick={toggleTheme}>
               {theme == "light" ? (
                 <FaRegMoon
