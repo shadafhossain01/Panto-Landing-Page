@@ -1,9 +1,47 @@
-import React from "react";
+import React, { useContext } from "react";
 import { getImageUrl } from "../utils/getImageUrl";
 import Rating from "./Rating";
 import { FaPlus } from "react-icons/fa";
+import Swal from "sweetalert2";
+import { Carts } from "../context/CartContext";
+
 
 const SingleProduct = ({product}) => {
+
+  const { cartItem, setCartItem } = useContext(Carts);
+
+  const handlePopup=(item)=>{
+ Swal.fire({
+   title: "Are you sure?",
+   text: "You want to add this product to your cart!",
+   icon: "warning",
+   showCancelButton: true,
+   confirmButtonColor: "#007E6E",
+   cancelButtonColor: "#d33",
+   confirmButtonText: "Yes!",
+ }).then((result) => {
+   if (result.isConfirmed) {
+     const alreadyExist = cartItem.some(
+       (cartProduct) => cartProduct.id === item.id
+     );
+
+     if (!alreadyExist) {
+       Swal.fire({
+         title: "Added Successfully!",
+         icon: "success",
+       });
+
+       setCartItem((prev) => [...prev, item]);
+     } else {
+       Swal.fire({
+         title: "Oops...",
+         text: "Product Already Added to Cart",
+         icon: "error",
+       });
+     }
+   }
+ });
+  }
   return (
     <div className="mb-[25px] rounded-[20px] overflow-hidden">
       <div className="bg-[#FAFAFA] dark:bg-[#1a1a1a6b]">
@@ -26,7 +64,8 @@ const SingleProduct = ({product}) => {
               {product.price}
             </h4>
           </div>
-          <div className="w-[48px] h-[48px] flex justify-center items-center rounded-full bg-[#0D1B39] cursor-pointer">
+          <div onClick={()=>handlePopup(product)}
+          className="w-[48px] h-[48px] flex justify-center items-center rounded-full bg-[#0D1B39] cursor-pointer">
             <FaPlus className="text-white" />
           </div>
         </div>
