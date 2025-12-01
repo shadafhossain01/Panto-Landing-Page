@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "./Container";
 import { Link, NavLink } from "react-router-dom";
 import Cart from "../assets/Cart";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaRegMoon } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
+import { Theme } from "../context/ThemeContext";
+import { IoSunnyOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const [isScroll,setIsScroll]=useState(false)
   const [menuOpen,setMenuOpen]=useState(false)
+  const { theme, toggleTheme } = useContext(Theme);
 
   const navPages=[
     {path:'/' , content:"Home"},
@@ -34,15 +37,19 @@ const Navbar = () => {
   return (
     <div
       className={`fixed mx-auto w-full z-20 px-5 ${
-        isScroll ? "bg-white py-3" : " top-10"
-      }`}
+        isScroll
+          ? theme == "dark"
+            ? "bg-[#1A1A1A] py-3  "
+            : "bg-white py-3"
+          : " top-10"
+      } `}
     >
       <Container>
         <div className="flex justify-between items-center">
           {/* logo */}
           <Link to="/">
             <h2
-              className={`font-['Poppins'] font-black text-[28px] leading-[42px] ${
+              className={`font-['Poppins'] font-black text-[28px] leading-[42px] dark:text-white ${
                 isScroll ? "text-black" : " text-white"
               }`}
             >
@@ -58,7 +65,7 @@ const Navbar = () => {
                 key={navItem.content}
                 to={navItem.path}
                 className={(e) =>
-                  ` font-['Poppins'] mr-[57px]  ${
+                  ` font-['Poppins'] mr-[57px] dark:text-white  ${
                     e.isActive ? "text-[#E58411]" : " "
                   }  ${
                     isScroll
@@ -83,7 +90,7 @@ const Navbar = () => {
             ) : (
               <FaBars
                 className={` text-2xl cursor-pointer ${
-                  isScroll ? "text-black" : "text-white "
+                  isScroll & theme=="light" ? "text-black" : "text-white "
                 }`}
                 onClick={() => setMenuOpen((prev) => !prev)}
               />
@@ -91,10 +98,25 @@ const Navbar = () => {
           </div>
 
           {/*  Cart Icon */}
-          <div className="cursor-pointer relative hidden lg:block">
-            <Cart color={isScroll ? "black" : "white "} />
-            <div className="w-[25px] h-[25px] bg-[#E58411] text-center rounded-full text-white absolute -right-[15px] top-px">
+          <div className="cursor-pointer relative hidden lg:flex gap-7 items-center">
+            <Cart color={isScroll && theme == "light" ? "black" : "white "} />
+            <div className="w-[25px] h-[25px] bg-[#E58411] text-center rounded-full text-white absolute right-[31px] top-px">
               5
+            </div>
+            <div onClick={toggleTheme}>
+              {theme == "light" ? (
+                <FaRegMoon
+                  className={`${
+                    isScroll && theme == "light" ? "text-black" : "text-white "
+                  } text-[20px]`}
+                />
+              ) : (
+                <IoSunnyOutline
+                  className={`${
+                    isScroll && theme == "light" ? "text-black" : "text-white "
+                  } text-[20px]`}
+                />
+              )}
             </div>
           </div>
         </div>
