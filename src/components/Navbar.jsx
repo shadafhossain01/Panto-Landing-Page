@@ -6,11 +6,13 @@ import { FaBars, FaRegMoon } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import { Theme } from "../context/ThemeContext";
 import { IoSunnyOutline } from "react-icons/io5";
+import { Carts } from "../context/CartContext";
 
 const Navbar = () => {
   const [isScroll,setIsScroll]=useState(false)
   const [menuOpen,setMenuOpen]=useState(false)
   const { theme, toggleTheme } = useContext(Theme);
+  const {cartItem}=useContext(Carts)
 
   const navPages=[
     {path:'/' , content:"Home"},
@@ -101,7 +103,7 @@ const Navbar = () => {
           <div className="cursor-pointer relative hidden lg:flex gap-7 items-center">
             <Cart color={isScroll && theme == "light" ? "black" : "white "} />
             <div className="w-[25px] h-[25px] bg-[#E58411] text-center rounded-full text-white absolute right-[31px] top-px">
-              5
+              {cartItem.length}
             </div>
             <div onClick={toggleTheme}>
               {theme == "light" ? (

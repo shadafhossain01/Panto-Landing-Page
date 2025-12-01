@@ -3,11 +3,14 @@ import { BrowserRouter } from "react-router";
 import './index.css'
 import App from './App.jsx'
 import ThemeContext from './context/ThemeContext.jsx';
+import CartContext from './context/CartContext.jsx';
 
 createRoot(document.getElementById("root")).render(
-  <ThemeContext>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ThemeContext>
+  <CartContext>
+    <ThemeContext>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeContext>
+  </CartContext>
 );
