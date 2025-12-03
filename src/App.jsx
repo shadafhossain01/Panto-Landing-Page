@@ -4,9 +4,11 @@ import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Shop from "./pages/shop/Shop";
 import Contact from "./pages/contact/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return <>
+  <ScrollToTop/>
     <Routes>
       <Route element={<General/>}>
       <Route index element={<Home/>}/>

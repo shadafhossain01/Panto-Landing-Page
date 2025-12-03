@@ -137,6 +137,7 @@ const Navbar = () => {
             <div className="flex flex-col gap-y-10">
               {navPages.map((navItem) => (
                 <NavLink
+                onClick={()=>setMenuOpen(false)}
                   key={navItem.content}
                   to={navItem.path}
                   className="text-white font-black text-[18px]"
